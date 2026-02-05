@@ -5,14 +5,14 @@ body {
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    background-color: #ffffff;
+    background-color: #fffafa;
 }
 
 .container {
     text-align: center;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(236, 7, 7, 0.2);
 }
 
 button {
@@ -21,6 +21,6 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: black;
+    background-color: rgb(39, 3, 3);
     color: white;
 }

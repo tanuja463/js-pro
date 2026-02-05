@@ -2,18 +2,20 @@ const button = document.getElementById("btn");
 const colorText = document.getElementById("colorCode");
 
 button.addEventListener("click", () => {
-    const randomColor = getRandomColor();
-    document.body.style.backgroundColor = randomColor;
-    colorText.textContent = "Color: " + randomColor;
+    getColorUsingAxios();
 });
 
-function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    
-    return color;
+function getColorUsingAxios() {
+    axios.get("https://www.thecolorapi.com/random")
+        .then(response => {
+            const colorHex = response.data.hex.value;
+            const colorName = response.data.name.value;
+
+            document.body.style.backgroundColor = colorHex;
+            colorText.textContent = `Color: ${colorHex} (${colorName})`;
+        })
+        .catch(error => {
+            console.error("API Error:", error);
+            colorText.textContent = "Failed to load color";
+        });
 }
